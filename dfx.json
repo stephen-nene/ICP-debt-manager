@@ -1,0 +1,14 @@
+{
+  "canisters": {
+    "debt_board": {
+      "type": "custom",
+      "main": "src/index.ts",
+      "candid": "src/index.did",
+      "root": "src",
+      "build": "npx azle debt_board",
+      "ts": "src/index.ts",
+      "wasm": ".azle/debt_board/debt_board.wasm",
+      "gzip": true
+    }
+  }
+}

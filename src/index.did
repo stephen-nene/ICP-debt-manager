@@ -1,0 +1,22 @@
+type DebtPayload = record {
+  debtorName : text;
+  description : text;
+  amount : float64;
+};
+type DebtRecord = record {
+  id : text;
+  createdAt : nat64;
+  debtorName : text;
+  description : text;
+  updatedAt : opt nat64;
+  amount : float64;
+};
+type _AzleResult = variant { Ok : DebtRecord; Err : text };
+type _AzleResult_1 = variant { Ok : vec DebtRecord; Err : text };
+service : () -> {
+  addDebt : (DebtPayload) -> (_AzleResult);
+  deleteDebt : (text) -> (_AzleResult);
+  getDebt : (text) -> (_AzleResult) query;
+  getDebts : () -> (_AzleResult_1) query;
+  updateDebt : (text, DebtPayload) -> (_AzleResult);
+}
