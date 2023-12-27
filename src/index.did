@@ -13,10 +13,13 @@ type DebtRecord = record {
 };
 type _AzleResult = variant { Ok : DebtRecord; Err : text };
 type _AzleResult_1 = variant { Ok : vec DebtRecord; Err : text };
+type _AzleResult_2 = variant { Ok : float64; Err : text };
 service : () -> {
   addDebt : (DebtPayload) -> (_AzleResult);
   deleteDebt : (text) -> (_AzleResult);
   getDebt : (text) -> (_AzleResult) query;
   getDebts : () -> (_AzleResult_1) query;
+  getTotalDebt : () -> (_AzleResult_2) query;
+  searchDebts : (text) -> (_AzleResult_1) query;
   updateDebt : (text, DebtPayload) -> (_AzleResult);
 }
